@@ -18,6 +18,7 @@ services:
       - DB_POSTGRESDB_SCHEMA=internal
       - DB_POSTGRESDB_USER=developer
       - DB_POSTGRESDB_PASSWORD=developer
+      - N8N_SECURE_COOKIE=false
     extra_hosts:
       - host.docker.internal:host-gateway
 
