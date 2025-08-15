@@ -3,7 +3,6 @@ version: '3'
 services:
   n8n:
     image: docker.n8n.io/n8nio/n8n
-    container_name: n8n
     restart: unless-stopped
     depends_on:
       - postgres
@@ -35,6 +34,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-volumes:
-  n8n_data:
-  postgres_data:
