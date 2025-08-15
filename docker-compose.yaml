@@ -24,6 +24,7 @@ services:
   postgres:
     platform: linux/x86_64
     image: postgres:15.3-alpine
+    restart: unless-stopped
     environment:
       PGDATA: "/var/lib/postgresql/data/pgdata"
       POSTGRES_DB: n8n
