@@ -46,3 +46,15 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
       MONGO_INITDB_DATABASE: minecraft
+  db:
+    image: yaliilyaya2/symfony6-skeleton-db:latest
+    build:
+      context: dockerfile/db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: app
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./data/mysql:/var/lib/mysql:rw
+      - ./data/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
